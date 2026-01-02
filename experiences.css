@@ -1,0 +1,106 @@
+/* Hero Section */
+.experience-hero {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.experience-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.experience-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Experience Container */
+.experience-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+}
+
+/* Experience Item */
+.experience-item {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    border-left: 4px solid #e74c3c;
+}
+
+.experience-header {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ecf0f1;
+}
+
+.experience-title {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.experience-company {
+    color: #3498db;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.experience-meta {
+    display: flex;
+    gap: 20px;
+    color: #7f8c8d;
+    margin-top: 10px;
+}
+
+.experience-meta i {
+    margin-right: 5px;
+}
+
+/* Responsibilities */
+.responsibilities ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.responsibilities li {
+    padding: 12px 0;
+    border-bottom: 1px solid #ecf0f1;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.responsibilities li:last-child {
+    border-bottom: none;
+}
+
+.responsibilities li i {
+    color: #e74c3c;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .experience-hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .experience-item {
+        padding: 25px;
+    }
+
+    .experience-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
