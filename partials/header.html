@@ -1,0 +1,151 @@
+<!-- Professional Header -->
+<header class="professional-header">
+    <div class="header-top-bar">
+        <div class="container">
+            <div class="header-contact-info">
+                <a href="tel:+11234567890" class="contact-item">
+                    <i class="fas fa-phone"></i> +1 (123) 456-7890
+                </a>
+                <a href="mailto:engineer@mechanicalportfolio.com" class="contact-item">
+                    <i class="fas fa-envelope"></i> engineer@mechanicalportfolio.com
+                </a>
+            </div>
+            <div class="header-social">
+                <a href="https://linkedin.com" target="_blank" class="social-icon" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com" target="_blank" class="social-icon" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://youtube.com" target="_blank" class="social-icon" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-navigation">
+        <div class="container">
+            <a href="home.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-name">Mechanical</span>
+                    <span class="logo-tag">Portfolio</span>
+                </div>
+            </a>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="home.html" class="nav-link">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="components.html" class="nav-link">
+                            <i class="fas fa-cube"></i>
+                            <span>CAD Portfolio</span>
+                            <i class="fas fa-chevron-down dropdown-arrow"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="components.html" class="dropdown-item">
+                                <i class="fas fa-cube"></i> CAD Components
+                            </a>
+                            <a href="assemblies.html" class="dropdown-item">
+                                <i class="fas fa-shapes"></i> CAD Assemblies
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="experiences.html" class="nav-link">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Experience</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="edu_skills_certificates.html" class="nav-link">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Education & Skills</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="projects.html" class="nav-link">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link contact-btn">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<script>
+// Header JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobile-menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    }
+
+    // Set active nav link
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (linkHref === currentPage) {
+            link.classList.add('active');
+            // Also activate parent dropdown if exists
+            const parentItem = link.closest('.nav-item');
+            if (parentItem) {
+                parentItem.classList.add('active');
+            }
+        }
+    });
+
+    // Dropdown functionality
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+        const trigger = dropdown.querySelector('.nav-link');
+        const menu = dropdown.querySelector('.dropdown-menu');
+
+        if (trigger && menu) {
+            trigger.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+
+            // Close dropdown when clicking elsewhere
+            document.addEventListener('click', function(event) {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        }
+    });
+});
+</script>
